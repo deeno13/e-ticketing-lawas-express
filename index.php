@@ -6,7 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,  initial-scale=1.0">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">	
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 	<title>My System</title>
 <style>
 body {
@@ -31,7 +31,7 @@ footer{
 }
 
 input,textarea,option, button {
-	font-family: "Raleway", sans-serif; 
+	font-family: "Raleway", sans-serif;
 }
 
 .header {
@@ -43,7 +43,7 @@ input,textarea,option, button {
     align-items: center;
     justify-content: center;
  }
- 
+
  /* Style the footer */
 .footer {
   background-color: #9e9e9e;
@@ -65,17 +65,17 @@ input,textarea,option, button {
 	float: left;
 	width:100%;
  }
- 
-.col-left {	
+
+.col-left {
 	float: left;
 	width: 30%;
 	box-sizing: border-box;
 	padding: 10px;
 	/* border: 1px solid #ccc; */
 }
-.col-right {	
+.col-right {
 	margin-left: 31%;
-	box-sizing: border-box; 
+	box-sizing: border-box;
 	padding: 10px;
 	/* border: 1px solid #ccc; */
 }
@@ -91,8 +91,8 @@ input,textarea,option, button {
 	color: #f2f2f2;
 	text-align: center;
 	padding: 14px 16px;
-	text-decoration: none;  
-	font-size: 17px; 
+	text-decoration: none;
+	font-size: 17px;
 }
 
 .topnav a:hover {
@@ -101,12 +101,12 @@ input,textarea,option, button {
 	color: black;
 }
 
-.userAuth {	
+.userAuth {
 	background-color: #f1f1f1;
 	text-align: right;
 }
 
-@media (max-width: 786px) {	
+@media (max-width: 786px) {
 	.col-left, .col-right {
 		float: none;
 		width: 100%;
@@ -121,17 +121,17 @@ input,textarea,option, button {
 	</div>
 
 	<div class="userAuth">
-		<?php 
+		<?php
 		//login&logout section
-		if(isset($_SESSION["UID"])){
-			echo '<b> '. $_SESSION["userName"] . '</b> <a href="logout.php">| Logout |</a> &nbsp;&nbsp;&nbsp; <br>';		
-		}			
+		if(isset($_SESSION["user_id"])){
+			echo '<b> '. $_SESSION["user_username"] . '</b> <a href="logout.php">| Logout |</a> &nbsp;&nbsp;&nbsp; <br>';
+		}
 		else {
 			echo '<a href="index.php?login=1">| Login |</a> &nbsp;&nbsp;&nbsp; <br>';
 		}
 		?>
 	</div>
-  
+
 	<nav class="topnav" id="myTopnav">
 		<a href="index.php">Home</a>
 		<a href="#">Menu 2</a>
@@ -139,23 +139,23 @@ input,textarea,option, button {
 		<a href="#">Menu 4</a>
 	</nav>
 
-    <div class="row">		
-		<div class="col-right">		
+    <div class="row">
+		<div class="col-right">
 		<?php
-		//Dynamic Authentication Page 
-		if(!isset($_GET["login"]) && empty($_GET["reg"]) && !isset($_SESSION["UID"])){
+		//Dynamic Authentication Page
+		if(!isset($_GET["login"]) && empty($_GET["reg"]) && !isset($_SESSION["user_id"])){
 			echo "Default landing page...";
-		}	
+		}
 		else if (!empty($_GET["reg"])) {
 			include("incl_register.php");
 		}
-		else if(!isset($_SESSION["UID"])){
+		else if(!isset($_SESSION["user_id"])){
 			include("incl_login.php");
-		} 			
+		}
 		else {
-			echo "Default landing page after successful login";					
-		}				
-		?>            				
+			echo "Default landing page after successful login";
+		}
+		?>
 		</div>
 	</div>
 	<div class="row">

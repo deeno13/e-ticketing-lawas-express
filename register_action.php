@@ -1,49 +1,50 @@
 <?php
-include("include/config.php");
-?>
-<!DOCTYPE html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" type="text/css" href="mystyle.css">
-</head>
-<body>
-<?php
 
-//STEP 1: Form data handling using mysqli_real_escape_string function to escape special characters for use in an SQL query,
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $userName = mysqli_real_escape_string($conn, $_POST['userName']);
-    $userEmail = mysqli_real_escape_string($conn, $_POST['userEmail']);
-    $userPwd = mysqli_real_escape_string($conn, $_POST['userPwd']);
-    $confirmPwd = mysqli_real_escape_string($conn, $_POST['confirmPwd']);
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include("includes/config.php");
 
-    //Validate pwd and confrimPwd
-    if ($userPwd !== $confirmPwd) {
-        die("Password and confirm password do not match.");
+    // Retrieve and sanitize form data
+    $user_username = trim($_POST['username']);
+    $user_email = trim($_POST['email']);
+    $user_password = trim($_POST['password']);
+    $user_phone = trim($_POST['phone']);
+
+    // Validate form data
+    if (empty($user_username) || empty($user_email) || empty($user_password) || empty($user_phone)) {
+        echo "Error: All fields are required.";
+        exit;
     }
 
-    //STEP 2: Check if userEmail already exist
-	$sql = "SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";	
-	$result = mysqli_query($conn, $sql);
-	
-    if (mysqli_num_rows($result) == 1) {
-		echo "<p ><b>Error: </b> User exist, please register a new user</p>";		
-	} else {
-		// User does not exist, insert new user record, hash the password		
-		$pwdHash = trim(password_hash($_POST['userPwd'], PASSWORD_DEFAULT)); 
-		//echo $pwdHash;
-		$sql = "INSERT INTO user (userName, userEmail, userPwd ) VALUES ('$userName','$userEmail', '$pwdHash')";
-		if (mysqli_query($conn, $sql)) {
-			echo "<p>New user record created successfully. Welcome <b>".$userName."</b></p>";			
-		} else {
-		echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}	
-	}
+    // Hash the password
+    $user_password_hashed = password_hash($user_password, PASSWORD_BCRYPT);
+
+    // Check if username or email already exists
+    $check_stmt = $conn->prepare("SELECT id FROM users WHERE username = ? OR email = ?");
+    $check_stmt->bind_param("ss", $user_username, $user_email);
+    $check_stmt->execute();
+    $check_stmt->store_result();
+
+    if ($check_stmt->num_rows > 0) {
+        echo "Error: Username or Email already exists.";
+    } else {
+        // Prepare an SQL statement to prevent SQL injection
+        $stmt = $conn->prepare("INSERT INTO users (username, email, password, phone) VALUES (?, ?, ?, ?)");
+        $stmt->bind_param("ssss", $user_username, $user_email, $user_password_hashed, $user_phone);
+
+        // Execute the statement
+        if ($stmt->execute()) {
+            echo "Registration successful!";
+			header("Location: index.php");
+        } else {
+            echo "Error: " . $stmt->error;
+        }
+
+        // Close the statement
+        $stmt->close();
+    }
+
+    // Close the check statement and connection
+    $check_stmt->close();
+    $conn->close();
 }
-
-mysqli_close($conn);
-
 ?>
-<p><a href="index.php?login=1"> | Login |</a></p>
-</body>
-</html>

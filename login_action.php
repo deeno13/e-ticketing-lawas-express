@@ -1,50 +1,45 @@
 <?php
-session_start();
-include("include/config.php");
-?>
-<html>
-<head>
-<title>Login Action</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-	<link rel="stylesheet" type="text/css" href="mystyle.css" media="screen" />
-</head>
-<body>
-<h2>Login Information</h2>
-<?php
-//login values from login form
-$userEmail = $_POST['userEmail']; 
-$userPwd = $_POST['userPwd'];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    include("includes/config.php");
 
-$sql = "SELECT * FROM user WHERE userEmail='$userEmail' LIMIT 1";
-$result = mysqli_query($conn, $sql);
+    // Retrieve and sanitize form data
+    $user_email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
+    $user_password = trim($_POST['password']);
 
-if (mysqli_num_rows($result) == 1) {	
-	//check password hash
-	$row = mysqli_fetch_assoc($result);
-	if (password_verify($_POST['userPwd'],$row['userPwd'])) {
-  		//echo "Login successful. <br> Welcome <b>".$userEmail."</b>.<br /><br />";		
-		//echo '<a href="index.php">Home</a> &nbsp;&nbsp;&nbsp; <br>';
-		// Echo JavaScript for a popup window
-		echo '<script type="text/javascript">		
-			alert("Login successful!");
-			</script>';
-		$_SESSION["UID"] = $row["userID"];//the first record set, bind to userID
-		$_SESSION["userName"] = $row["userName"];
-		//set logged in time
-		$_SESSION['loggedin_time'] = time();  
-		header("location:index.php"); 
-    } else {
-    echo 'Login error, user email and password is incorrect.<br>';//user email & pwd not correct	
-	echo '<a href="index.php?login=1"> | Login |</a> &nbsp;&nbsp;&nbsp; <br>';
+    // Validate email format
+    if (!filter_var($user_email, FILTER_VALIDATE_EMAIL)) {
+        echo "Invalid email format.";
+        exit;
     }
-		
-} else {
-		echo "Login error, user <b>$userEmail</b> does not exist. <br>";//user not exist
-		echo '<a href="index.php?login=1"> | Login |</a>&nbsp;&nbsp;&nbsp; <br>';	
-} 
 
-mysqli_close($conn);
+    // Prepare an SQL statement to prevent SQL injection
+    $stmt = $conn->prepare("SELECT id, username, password FROM users WHERE email = ?");
+    $stmt->bind_param("s", $user_email);
+    $stmt->execute();
+    $stmt->store_result();
+
+    if ($stmt->num_rows > 0) {
+        $stmt->bind_result($id, $username, $hashed_password);
+        $stmt->fetch();
+
+        // Verify the password
+        if (password_verify($user_password, $hashed_password)) {
+            // Successful login
+            session_start();
+            session_regenerate_id(true); // Prevent session fixation
+            $_SESSION['user_id'] = $id;
+            $_SESSION['user_username'] = $username;
+            header("Location: index.php");
+            exit;
+        } else {
+            echo "Invalid email or password.";
+        }
+    } else {
+        echo "Invalid email or password.";
+    }
+
+    // Close the statement and connection
+    $stmt->close();
+    $conn->close();
+}
 ?>
-</body>
-</html>
