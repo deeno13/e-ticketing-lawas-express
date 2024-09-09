@@ -33,8 +33,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Execute the statement
         if ($stmt->execute()) {
-            echo "Registration successful!";
-			header("Location: index.php");
+            // Auto-login after successful registration
+            session_start(); // Start the session
+
+            // Set session variables
+            $_SESSION['user_id'] = $stmt->insert_id; // Get the ID of the newly created user
+            $_SESSION['user_username'] = $user_username;
+
+            // Redirect to the homepage or dashboard
+            header("Location: index.php");
         } else {
             echo "Error: " . $stmt->error;
         }
