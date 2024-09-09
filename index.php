@@ -2,7 +2,7 @@
 session_start();
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,  initial-scale=1.0">
@@ -44,11 +44,8 @@ session_start();
 				if(!isset($_GET["login"]) && empty($_GET["reg"]) && !isset($_SESSION["user_id"])){
 					echo "Default landing page...";
 				}
-				else if (!empty($_GET["reg"])) {
-					include("incl_register.php");
-				}
 				else if(!isset($_SESSION["user_id"])){
-					include("incl_login.php");
+					header("Location: pages/login.php");
 				}
 				else {
 					echo "Default landing page after successful login";
