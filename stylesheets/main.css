@@ -25,11 +25,6 @@ img {
   vertical-align: middle;
 }
 
-footer {
-  text-align: center;
-  font-size: 12px;
-}
-
 input,
 textarea,
 option,
@@ -47,23 +42,6 @@ button {
   justify-content: center;
 }
 
-/* Style the footer */
-.footer {
-  background-color: #9e9e9e;
-  color: #ffffff;
-  text-align: center;
-  font-size: 12px;
-  padding: 5px;
-}
-
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  height: 30px; /* Height of the footer */
-  background: #bd5409;
-  padding: 15px;
-}
 .row {
   float: left;
   width: 100%;
