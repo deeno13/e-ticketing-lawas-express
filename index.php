@@ -31,10 +31,10 @@ session_start();
 			</div>
 
 			<nav class="topnav" id="myTopnav">
-				<a href="index.php">Home</a>
-				<a href="#">Menu 2</a>
-				<a href="#">Menu 3</a>
-				<a href="#">Menu 4</a>
+					<a href="index.php">Home</a>
+					<a href="pages/schedule.php">Schedule</a>
+					<a href="pages/about.php">About</a>
+					<a href="pages/contact.php">Contact</a>
 			</nav>
 		</header>
 
@@ -57,40 +57,6 @@ session_start();
 			</div>
 		</main>
 
-		<footer class="footer">
-			<div class="footer__content">
-				<div class="footer__brand">
-					<div class="footer__logo">
-						<h2>E-Ticketing Lawas Express</h2>
-					</div>
-					<span class="footer__copyright">Copyright © 2024 - Nurul Izzati</span>
-				</div>
-
-				<nav class="footer__nav">
-					<section class="footer__section">
-						<h3 class="footer__heading">Section</h3>
-						<ul class="footer__list">
-							<li><a href="#" class="footer__link">Link</a></li>
-							<li><a href="#" class="footer__link">Link</a></li>
-						</ul>
-					</section>
-					<section class="footer__section">
-						<h3 class="footer__heading">Section</h3>
-						<ul class="footer__list">
-							<li><a href="#" class="footer__link">Link</a></li>
-							<li><a href="#" class="footer__link">Link</a></li>
-						</ul>
-					</section>
-					<section class="footer__section">
-						<h3 class="footer__heading">Section</h3>
-						<ul class="footer__list">
-							<li><a href="#" class="footer__link">Link</a></li>
-							<li><a href="#" class="footer__link">Link</a></li>
-						</ul>
-					</section>
-				</nav>
-			</div>
-		</footer>
-
+    <?php include("includes/footer.php"); ?>
 	</body>
 </html>
