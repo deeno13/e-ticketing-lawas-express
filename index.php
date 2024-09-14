@@ -11,7 +11,8 @@ session_start();
 
 		<title>E-Ticketing Lawas Express</title>
 	</head>
-	<body>
+
+	<body class="body">
 		<header>
 			<div class="header">
 				<h1>E-Ticketing Lawas Express</h1>
@@ -37,7 +38,7 @@ session_start();
 			</nav>
 		</header>
 
-		<main>
+		<main class="main">
 			<div class="row">
 				<div class="col-right">
 				<?php

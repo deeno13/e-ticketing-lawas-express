@@ -9,28 +9,27 @@
 @import url("components/hero.css");
 
 /* Main styles */
-body {
-  margin: 0;
+.body {
+  display: flex;
+  flex-direction: column;
   font-family: "Raleway", sans-serif;
-  padding-bottom: 60px;
 }
 
-table {
-  width: 100%;
-  border: 1px solid;
+.main {
+  /* flex: 1; */
 }
 
-img {
+/* img {
   border-style: none;
   vertical-align: middle;
-}
+} */
 
-input,
+/* input,
 textarea,
 option,
 button {
   font-family: "Raleway", sans-serif;
-}
+} */
 
 .header {
   height: 120px;
