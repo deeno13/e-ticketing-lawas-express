@@ -1,6 +1,5 @@
-<?php
-session_start();
-?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -13,30 +12,13 @@ session_start();
 	</head>
 
 	<body class="body">
-		<header>
-			<div class="header">
-				<h1>E-Ticketing Lawas Express</h1>
-			</div>
-
-			<div class="userAuth">
-				<?php
-				//login&logout section
-				if(isset($_SESSION["user_id"])){
-					echo '<b> '. $_SESSION["user_username"] . '</b> <a href="logout.php">| Logout |</a> &nbsp;&nbsp;&nbsp; <br>';
-				}
-				else {
-					echo '<a href="index.php?login=1">| Login |</a> &nbsp;&nbsp;&nbsp; <br>';
-				}
-				?>
-			</div>
-
-			<nav class="topnav" id="myTopnav">
-					<a href="../index.php">Home</a>
-					<a href="../pages/schedule.php">Schedule</a>
-					<a href="../pages/about.php">About</a>
-					<a href="../pages/contact.php">Contact</a>
-			</nav>
+		<header class="header">
+			<?php include("../includes/navbar.php"); ?>
 		</header>
+
+		<div class="header">
+			<h1>E-Ticketing Lawas Express</h1>
+		</div>
 
 		<main class="main">
 			<div class="row">
