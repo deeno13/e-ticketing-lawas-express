@@ -9,7 +9,7 @@
 
 	<body>
 		<main>
-			<form action="../login_action.php" method="post">
+			<form action="../auth/login_action.php" method="post">
 				<h2>User Login</h2>
 
 				<label for="email">Email</label>

@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php include("auth/auth.php"); ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,18 +23,18 @@
 		<main class="main">
 			<div class="row">
 				<div class="col-right">
-				<?php
-				//Dynamic Authentication Page
-				if(!isset($_GET["login"]) && empty($_GET["reg"]) && !isset($_SESSION["user_id"])){
-					echo "Default landing page...";
-				}
-				else if(!isset($_SESSION["user_id"])){
-					header("Location: pages/login.php");
-				}
-				else {
-					echo "Default landing page after successful login";
-				}
-				?>
+					<?php
+					//Dynamic Authentication Page
+					if(!isset($_SESSION["user_id"])){
+						echo "Default landing page...";
+					}
+					else if(!isset($_SESSION["user_id"])){
+						header("Location: pages/login.php");
+					}
+					else {
+						echo "Default landing page after successful login";
+					}
+					?>
 				</div>
 			</div>
 		</main>

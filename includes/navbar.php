@@ -3,9 +3,9 @@
 include("config.php");
 
 if (isset($_SESSION['user_id'])) {
-	$auth_content = '<a href="logout.php">Logout</a>';
+  $auth_content = '<a href="' . BASE_URL . 'auth/logout.php">Logout</a>';
 } else {
-	$auth_content = '<a href="index.php?login=1">Login</a>';
+  $auth_content = '<a href="' . BASE_URL . 'pages/login.php">Login</a>';
 }
 
 ?>
