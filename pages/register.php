@@ -9,7 +9,7 @@
 
   <body>
     <main>
-      <form action="../register_action.php" method="post">
+      <form action="../auth/register_action.php" method="post">
         <h2>User Registration </h2>
 
         <label for="username">Username:</label>
