@@ -1,18 +1,24 @@
 @import url("reset.css");
 @import url("colors.css");
-@import url("utilities.css");
 @import url("fonts.css");
+@import url("utilities.css");
 
 /* Components */
 @import url("components/header.css");
 @import url("components/footer.css");
 @import url("components/hero.css");
+@import url("components/login.css");
 
 /* Main styles */
 .body {
+  background-color: #f2f2f2;
+  color: var(--charcoal);
+  margin: 0;
+  font-family: "Roboto", sans-serif;
   display: flex;
   flex-direction: column;
-  font-family: "Raleway", sans-serif;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .main {
