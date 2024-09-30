@@ -1,0 +1,25 @@
+.header__nav {
+  overflow: hidden;
+  background-color: #f1e1e1;
+  padding: 0 15rem;
+}
+
+.header__nav a {
+  float: left;
+  display: block;
+  color: #323232;
+  text-align: center;
+  padding: 0.875rem 1rem;
+  text-decoration: none;
+  font-size: 1.125rem;
+}
+
+.header__nav a:hover {
+  background-color: #ddd;
+  color: #323232;
+}
+
+.userAuth {
+  background-color: #f1f1f1;
+  text-align: right;
+}
