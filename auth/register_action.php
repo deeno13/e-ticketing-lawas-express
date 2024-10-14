@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect to the homepage or dashboard
             header("Location: ../index.php");
         } else {
-            echo "Error: " . $stmt->error;
+            echo "Error: {$stmt->error}";
         }
 
         // Close the statement

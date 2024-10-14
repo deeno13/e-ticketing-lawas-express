@@ -1,7 +1,5 @@
 <?php
 
-define('BASE_URL', '/e-ticketing-lawas-express/');
-
 // Database credentials
 $database_host = "localhost";
 $database_username = "root";
