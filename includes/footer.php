@@ -9,24 +9,25 @@
 
     <nav class="footer__nav">
       <section class="footer__section">
-        <h3 class="footer__heading">Section</h3>
+        <h3 class="footer__heading">Quick Links</h3>
         <ul class="footer__list">
-          <li><a href="#" class="footer__link">Link</a></li>
-          <li><a href="#" class="footer__link">Link</a></li>
+          <li><a href="#" class="footer__link">Schedule</a></li>
+          <li><a href="#" class="footer__link">About Us</a></li>
+          <li><a href="#" class="footer__link">Contact Us</a></li>
         </ul>
       </section>
       <section class="footer__section">
-        <h3 class="footer__heading">Section</h3>
+        <h3 class="footer__heading">We Accept</h3>
         <ul class="footer__list">
-          <li><a href="#" class="footer__link">Link</a></li>
-          <li><a href="#" class="footer__link">Link</a></li>
+          <li><a href="#" class="footer__link">FPX</a></li>
+          <li><a href="#" class="footer__link">PayPal</a></li>
         </ul>
       </section>
       <section class="footer__section">
-        <h3 class="footer__heading">Section</h3>
+        <h3 class="footer__heading">Follow Us</h3>
         <ul class="footer__list">
-          <li><a href="#" class="footer__link">Link</a></li>
-          <li><a href="#" class="footer__link">Link</a></li>
+          <li><a href="#" class="footer__link">Facebook</a></li>
+          <li><a href="#" class="footer__link">Instagram</a></li>
         </ul>
       </section>
     </nav>
