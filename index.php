@@ -17,25 +17,14 @@
 			<?php include("includes/navbar.php"); ?>
 		</header>
 
-		<div class="header">
-			<h1>E-Ticketing Lawas Express</h1>
+		<div class="header" style="padding: 5rem 15rem;">
+			<h1 style="text-align: center;">E-Ticketing Lawas Express</h1>
 		</div>
 
 		<main class="main">
 			<div class="row">
 				<div class="col-right">
-					<?php
-					//Dynamic Authentication Page
-					if(!isset($_SESSION["user_id"])){
-						echo "Default landing page...";
-					}
-					else if(!isset($_SESSION["user_id"])){
-						header("Location: pages/login.php");
-					}
-					else {
-						echo "Default landing page after successful login";
-					}
-					?>
+
 				</div>
 			</div>
 		</main>

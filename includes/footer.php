@@ -11,9 +11,9 @@
       <section class="footer__section">
         <h3 class="footer__heading">Quick Links</h3>
         <ul class="footer__list">
-          <li><a href="#" class="footer__link">Schedule</a></li>
-          <li><a href="#" class="footer__link">About Us</a></li>
-          <li><a href="#" class="footer__link">Contact Us</a></li>
+          <li><a href="schedule.php" class="footer__link">Schedule</a></li>
+          <li><a href="about.php" class="footer__link">About Us</a></li>
+          <li><a href="contact.php" class="footer__link">Contact Us</a></li>
         </ul>
       </section>
       <section class="footer__section">

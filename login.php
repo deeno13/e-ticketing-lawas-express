@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="../stylesheets/main.css" >
+		<link rel="stylesheet" href="stylesheets/main.css" >
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 		<title>Login</title>
@@ -12,13 +12,13 @@
 
 	<body class="body">
 		<header class="header">
-			<?php include("../includes/navbar.php"); ?>
+			<?php include("includes/navbar.php"); ?>
 		</header>
 
 		<main>
 			<div class="center">
 				<div class="login-modal">
-					<form action="../auth/login_action.php" method="post">
+					<form action="auth/login_action.php" method="post">
 						<div style="display: flex; align-items: center; margin-bottom: 24px;">
 							<i class="fa-solid fa-user fa-fw fa-lg" style="margin-right: 10px;"></i>
 							<h2>User Login</h2>
@@ -55,7 +55,7 @@
 		</main>
 
 		<footer>
-			<?php include("../includes/footer.php"); ?>
+			<?php include("includes/footer.php"); ?>
 		</footer>
 	</body>
 </html>
