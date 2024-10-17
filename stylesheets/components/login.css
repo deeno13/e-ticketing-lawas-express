@@ -27,14 +27,16 @@
   margin-bottom: 12px;
 }
 
-.form-field input {
+.form-field input,
+textarea {
   width: 100%;
   padding: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
 }
 
-.form-field input:focus {
+.form-field input:focus,
+textarea:focus {
   outline: none;
   border-color: var(--brass);
 }
