@@ -4,6 +4,12 @@
   padding: 0 30rem;
 }
 
+@media (min-width: 768px) {
+  .header__nav {
+    padding: 0 15rem;
+  }
+}
+
 .header__nav a {
   float: left;
   display: block;

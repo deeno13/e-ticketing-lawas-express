@@ -1,8 +1,26 @@
 .footer {
   margin-top: auto;
-  padding: 0 30rem;
+  padding: 1rem;
   background-color: #f1e1e1;
 }
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 0 15rem;
+  }
+}
+
+/* @media (min-width: 1024px) {
+  .footer {
+    padding: 0 20rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .footer {
+    padding: 0 30rem;
+  }
+} */
 
 .footer__content {
   display: grid;

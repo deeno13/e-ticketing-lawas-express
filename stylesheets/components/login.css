@@ -28,7 +28,8 @@
 }
 
 .form-field input,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 12px;
   border-radius: 6px;
@@ -36,7 +37,8 @@ textarea {
 }
 
 .form-field input:focus,
-textarea:focus {
+textarea:focus,
+select {
   outline: none;
   border-color: var(--brass);
 }

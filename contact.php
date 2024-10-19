@@ -22,7 +22,7 @@
 		</div>
 
 		<main class="main" style="height: 100%;">
-      <div style="padding: 0 30rem 5rem 30rem;">
+      <div style="padding: 0 5rem 5rem 5rem;">
         <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 2rem;">
           <div style="grid-column: 2 / 4; background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 0.5rem">
             <div style="display: flex; flex-direction: column; gap: 2.5rem;">
