@@ -22,11 +22,11 @@
 		</div>
 
 		<main class="main">
-			<div class="row">
-				<div class="col-right">
-
-				</div>
-			</div>
+      <div style="padding: 0 30rem 5rem 30rem;">
+        <div style="display: flex; justify-content: center;">
+          <a href="book.php" class="btn" style="text-decoration: none; display: flex; align-items: center; justify-content: center;">BOOK NOW</a>
+        </div>
+      </div>
 		</main>
 
     <?php include("includes/footer.php"); ?>
