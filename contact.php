@@ -22,9 +22,9 @@
 		</div>
 
 		<main class="main" style="height: 100%;">
-      <div style="padding: 0 5rem 5rem 5rem;">
-        <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 2rem;">
-          <div style="grid-column: 2 / 4; background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 0.5rem">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; padding-bottom: 5rem;">
+          <div style="background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 0.5rem">
             <div style="display: flex; flex-direction: column; gap: 2.5rem;">
               <div style="display: flex; flex-direction: column; gap: 1.5rem;">
                 <h2>Contact Info</h2>
@@ -55,7 +55,7 @@
               </div>
             </div>
           </div>
-          <div style="grid-column: 4 / 6; background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 0.5rem">
+          <div style="background-color: white; padding: 2rem; border: 1px solid #ccc; border-radius: 0.5rem">
             <form action="contact_action.php" method="post">
               <div class="form-field">
                 <label for="name">Name</label>
